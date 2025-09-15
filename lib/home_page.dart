@@ -1,60 +1,22 @@
 import 'package:flutter/material.dart';
-import 'app_controller.dart';
+import 'package:flutter_app/components_widget.dart';
 
-//Widget dinâmico que retorna a página
-class HomePage extends StatefulWidget{
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<HomePage> createState() {
-  return HomePageState();
-  }
-
+  State<HomePage> createState() => _HomePageState();
 }
 
-//Stado do widget dinâmico
-class HomePageState extends State<HomePage>{
-  
-  @override
-  Widget build(BuildContext context) {
-  
-  return Scaffold(
+class _HomePageState extends State<HomePage> {
 
-    appBar: AppBar(
-      title: Text('Home Page',style: TextStyle(color:AppController.instance.isDarkTheme ?Colors.white:Colors.black),),
-      backgroundColor: Colors.purple,
-      actions: [ThemeButtom()],
-    ),
-
-
-    body:
-        Center(
-          
-        ),
-
-
-
-    
-    );
-  }
-}
-
-class ThemeButtom extends StatelessWidget{
+  int counter=0;
 
   @override
   Widget build(BuildContext context) {
-    return
-      FloatingActionButton(
-        backgroundColor: const Color.fromARGB(0, 0, 0, 0),
-        elevation: 0,
-        hoverElevation: 0,
-        focusElevation: 0,
-        highlightElevation: 0,
-        onPressed: () {
-          AppController.instance.ChangeTheme();
-        },
-        child: AppController.instance.isDarkTheme ?  Icon(Icons.light_mode, color: Colors.white,):  Icon(Icons.dark_mode, color: Colors.black,),
-      );  
+    return 
+      customAppBar('Home Page',
+      Column()
+      );
   }
-
 }
-
