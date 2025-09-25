@@ -11,3 +11,23 @@ class AppController extends ChangeNotifier {
     notifyListeners();
   }
 }
+
+class SelectedApp extends ChangeNotifier {
+
+  static SelectedApp instance = SelectedApp();
+
+  String packageName ='';
+  String appName ='';
+  
+  ChoseApp(String packageName, String appName){
+    instance.packageName= packageName;
+    instance.appName= appName;
+    notifyListeners();
+  }
+
+  UnselectApp(){
+    instance.packageName='';
+    notifyListeners();
+  }
+
+}

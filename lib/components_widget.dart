@@ -3,7 +3,8 @@ import 'package:flutter_app/app_controller.dart';
 class customAppBar extends StatelessWidget {
   final String title;
   final dynamic body;
-  customAppBar(String this.title, this.body);
+  dynamic button=null;
+  customAppBar(String this.title, this.body,{this.button});
   @override
   Widget build(BuildContext context) {
   return
@@ -14,7 +15,8 @@ class customAppBar extends StatelessWidget {
             ThemeButtom()
           ],
         ),
-      body: Column(children: [Divider(thickness:2, color:AppController.instance.isDarkTheme ? Color.fromARGB(255, 37, 37, 37) :Color.fromARGB(255, 221, 221, 221)),body],),
+      body: Column(children: [Divider(thickness:1.7, color:AppController.instance.isDarkTheme ? Color.fromARGB(255, 37, 37, 37) :Color.fromARGB(255, 221, 221, 221)),body],),
+      floatingActionButton: button ??  button,
     );
   }
 }
@@ -35,3 +37,4 @@ class ThemeButtom extends StatelessWidget{
       );
   }
 }
+

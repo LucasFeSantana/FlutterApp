@@ -49,14 +49,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
-  device_apps:
-    dependency: "direct main"
-    description:
-      name: device_apps
-      sha256: e84dc74d55749993fd671148cc0bd53096e1be0c268fc364285511b1d8a4c19b
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.2.0"
   fake_async:
     dependency: transitive
     description:
@@ -70,6 +62,30 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_device_apps:
+    dependency: "direct main"
+    description:
+      name: flutter_device_apps
+      sha256: b15f81a2ce1dae371fa693377d8dc2b9b03fc80c3a7e3b68ad287e0ea7133665
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.1"
+  flutter_device_apps_android:
+    dependency: transitive
+    description:
+      name: flutter_device_apps_android
+      sha256: "94e2741cb0970ac33787ad06f1e43fdd4b557bf91f7c8dd90fe015aacf6e3234"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.0"
+  flutter_device_apps_platform_interface:
+    dependency: transitive
+    description:
+      name: flutter_device_apps_platform_interface
+      sha256: fb80982290f664a3f7c6d480c37c51a9d21ca45219487f29a1ca7a5d1de47494
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -83,6 +99,22 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  installed_apps:
+    dependency: "direct main"
+    description:
+      name: installed_apps
+      sha256: dd2b7c531f91114cd6df447c56567593c9799ca83f057137ae719324ae0afd06
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.6.0"
+  intl:
+    dependency: "direct main"
+    description:
+      name: intl
+      sha256: "3df61194eb431efc39c4ceba583b95633a403f46c9fd341e550ce0bfa50e9aa5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.20.2"
   leak_tracker:
     dependency: transitive
     description:
@@ -147,6 +179,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.1"
+  plugin_platform_interface:
+    dependency: transitive
+    description:
+      name: plugin_platform_interface
+      sha256: "4820fbfdb9478b1ebae27888254d445073732dae3d6ea81f0b7e06d5dedc3f02"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.8"
   sky_engine:
     dependency: transitive
     description: flutter

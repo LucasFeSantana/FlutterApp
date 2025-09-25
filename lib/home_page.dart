@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/components_widget.dart';
-import 'package:device_apps/device_apps.dart';
+import 'package:flutter_app/gpt_page.dart';
+import 'package:installed_apps/app_info.dart';
+import 'package:installed_apps/installed_apps.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,14 +13,39 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  
+int amountApps=0;  
 
-  int counter=0;
+@override
+void initState() {
+    super.initState();
+    getAllInstalledApps();
+  }
+
+   getAllInstalledApps() async {
+    List<AppInfo> apps = await InstalledApps.getInstalledApps(false,true);
+    setState(() {
+      int amountApps = apps.length;
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
     return 
       customAppBar('Home Page',
-      Column()
-      );
+      Center(
+        child: Container(
+        )
+      ),
+      button: FloatingActionButton(
+        onPressed: (){
+          Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => InstalledAppsGallery()));
+        }
+        ),
+      )
+      ;
   }
 }
