@@ -18,7 +18,7 @@ class appWidget extends StatelessWidget{
           theme: ThemeData(
             brightness: AppController.instance.isDarkTheme ? Brightness.dark : Brightness.light,
           ),
-          home: InstalledAppsGallery(),
+          home: HomePage(),
         );
       },
     );

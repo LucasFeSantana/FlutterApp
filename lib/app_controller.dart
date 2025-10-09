@@ -31,3 +31,4 @@ class SelectedApp extends ChangeNotifier {
   }
 
 }
+

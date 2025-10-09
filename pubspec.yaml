@@ -30,12 +30,20 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  mask_text_input_formatter: ^2.9.0
+  
+#  lib_app_dependencies:
+#    git:
+#      url: https://telefonica-vivo-brasil@dev.azure.com/telefonica-vivo-brasil/ADCP%20-%20FLUTTER/_git/lib_app_dependencies
+#      ref: <latest_version>
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   installed_apps: ^1.6.0
   flutter_device_apps: ^0.3.1
+  
   intl: ^0.20.2
 
 dev_dependencies:
