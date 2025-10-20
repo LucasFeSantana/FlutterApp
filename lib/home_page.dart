@@ -46,7 +46,7 @@ void initState() {
   }
 
    getAllInstalledApps() async {
-    List<AppInfo> apps = await InstalledApps.getInstalledApps(false,true);
+    List<AppInfo> apps = await InstalledApps.getInstalledApps(excludeSystemApps: false,excludeNonLaunchableApps: true);
     setState(() {
       int amountApps = apps.length;
     });
