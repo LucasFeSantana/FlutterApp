@@ -10,20 +10,23 @@ class MyWidget extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<MyWidget> {
+  String _responseText = "";
   @override
   Widget build(BuildContext context) {
 
       final TextEditingController _loginController = TextEditingController();
       final TextEditingController _senhaController = TextEditingController();
-      String _responseText = "";
+
 
       Future<void> _sendData() async {
         final login = _loginController.text;
         final senha = _senhaController.text;
-        final url = Uri.http('127.0.0.1:5000','/responsavel',);
-        final request = http.Request('GET', url)
-          ..headers['Content-Type'] = 'aplication/json'
-          ..body = jsonEncode({'id_resp': login,'senha': senha});
+        final url = Uri.http('10.0.2.2:5000','/responsavel',{
+          'login': login,
+          'senha': senha
+          });
+
+        final request = http.Request('GET', url);
 
         try {
         final streamedResponse = await request.send();
@@ -32,22 +35,26 @@ class _MyWidgetState extends State<MyWidget> {
           if (response.statusCode == 200) {
             final data = jsonDecode(response.body);
             setState(() {
-              _responseText = "✅ Success: ${data['token']}";
+              _responseText = "✅ Login realizado com sucesso";
+              print(_responseText);
             });
           } else {
             setState(() {
               _responseText =
-                  "❌ Error ${response.statusCode}: ${response.body}";
+                  "${jsonDecode(response.body)["falha"]}";
+                  print(_responseText);
             });
           }
         } catch (e) {
           setState(() {
             _responseText = "⚠️ Request failed: $e";
+            print(_responseText);
           });
         }
       }
 
     return Scaffold(
+      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
         
@@ -60,7 +67,7 @@ class _MyWidgetState extends State<MyWidget> {
                 //logo Vivo
                 SizedBox(
                   width:48, height: 48,
-                child: Image(image: AssetImage('../assets/images/vivo_logo.png'))
+                child: Image(image: AssetImage('assets/images/vivo_logo.png'))
                 ),
                     
                 SizedBox(height: 20,),
@@ -153,8 +160,12 @@ class _MyWidgetState extends State<MyWidget> {
               ),
 
               //Info sobre validação do login
-              Padding(padding: const EdgeInsets.all(8.0),
-              child: Text(_responseText, style: TextStyle(color: Colors.red),),
+              SizedBox(
+                height: 50,
+                width: 305,
+                child: Padding(padding: const EdgeInsets.fromLTRB(0,8,0,8),
+                  child: Text(_responseText, style: TextStyle(color: Colors.red),textAlign: TextAlign.left,),
+                ),
               )
               ],
             ),
@@ -168,7 +179,6 @@ class _MyWidgetState extends State<MyWidget> {
               style: ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(255, 102, 0, 153)),
               onPressed: (){
                 _sendData();
-                print(_responseText);
               },
               child: Padding(
                 padding: const EdgeInsets.all(12.0),
