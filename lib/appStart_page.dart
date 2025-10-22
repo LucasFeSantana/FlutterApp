@@ -15,6 +15,7 @@ class _AppStartPageState extends State<AppStartPage> {
   @override
   void initState() {
     super.initState();
+    AppController.instance.checkLoginStatus();
 
     //Espera 3 segundos com o Logo da Vivo
     Future.delayed(Duration(seconds: 3), () {

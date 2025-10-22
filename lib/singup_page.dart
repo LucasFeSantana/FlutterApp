@@ -210,6 +210,7 @@ mask: '###.###.###-##',
                 child: SizedBox(width: 305,
                   child: TextField(
                     controller: _loginController,
+                    keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       label: Text('E-mail'),
