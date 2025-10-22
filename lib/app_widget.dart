@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart';
-import 'login_page.dart';
 import 'app_controller.dart';
-import 'gpt_page.dart';
 import 'appStart_page.dart';
 
 class appWidget extends StatelessWidget{
@@ -19,7 +16,7 @@ class appWidget extends StatelessWidget{
           theme: ThemeData(
             brightness: AppController.instance.isDarkTheme ? Brightness.dark : Brightness.light,
           ),
-          home: MyWidget(),
+          home: AppStartPage(),
         );
       },
     );

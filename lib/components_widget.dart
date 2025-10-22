@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_controller.dart';
+
 class customAppBar extends StatelessWidget {
+
+  //Propriedades do Scafold personalizado
   final String title;
   final dynamic body;
   dynamic button=null;
+
   customAppBar(String this.title, this.body,{this.button});
   @override
   Widget build(BuildContext context) {
@@ -20,6 +24,8 @@ class customAppBar extends StatelessWidget {
     );
   }
 }
+
+
 class ThemeButtom extends StatelessWidget{
   @override
   Widget build(BuildContext context) {

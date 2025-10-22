@@ -38,7 +38,7 @@ class _InstalledAppsGalleryState extends State<InstalledAppsGallery> {
       _apps.isEmpty
           ? Center(child: CircularProgressIndicator())
           : SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
+              //scrollDirection: Axis.vertical,
               child: Row(
                 children: _apps.map((app) {
                   return GestureDetector(

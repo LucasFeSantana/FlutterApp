@@ -5,9 +5,16 @@ class AppController extends ChangeNotifier {
   static AppController instance = AppController();
 
   bool isDarkTheme = false;
+  bool islogged = false;
+  String userEmail = '';
 
   ChangeTheme(){
     isDarkTheme = !isDarkTheme;
+    notifyListeners();
+  }
+  UserLogging(String email){
+    islogged = true;
+    userEmail = email;
     notifyListeners();
   }
 }
