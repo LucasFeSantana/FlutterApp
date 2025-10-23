@@ -71,12 +71,16 @@ class _HomePageState extends State<HomePage> {
     ),
 
       //Navbar inferior
-      bottomNavigationBar: ElevatedButton(
-                  onPressed: () {
-                    _logout();
-                  },
-                  child: Text('Logout'),
-                ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ElevatedButton(
+                    style:ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(255, 102, 0, 153),),
+                    onPressed: () {
+                      _logout();
+                    },
+                    child: Text('Logout',style: TextStyle(color: Colors.white),),
+                  ),
+      ),
     );
   }
 }

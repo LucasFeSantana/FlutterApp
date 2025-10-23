@@ -5,8 +5,9 @@ class AppController extends ChangeNotifier {
 
   static AppController instance = AppController();
   bool isDarkTheme = false;
-  bool islogged = false;
+  bool islogged = true;// Validar de acordo com usuário
   String userEmail = '';
+  final String ipServidor = '192.168.250.112';
 
   checkLoginStatus() async {
     final prefs = await SharedPreferences.getInstance();

@@ -44,4 +44,37 @@ class ThemeButtom extends StatelessWidget{
       );
   }
 }
+class Steppeer extends StatelessWidget {
+  int step;
+  Steppeer(this.step);
 
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+                          width: 216,
+                          height: 24,
+                          child: Row(
+                            children: [
+                              Icon( (step>=1) ? Icons.circle:Icons.circle_outlined, color: (step>=1)?Color.fromARGB(255, 102, 0, 153):Color.fromARGB(255, 102, 102, 102),),
+                              SizedBox(),
+                              Icon(Icons.linear_scale_outlined,color: (step>=2)?Color.fromARGB(255, 102, 0, 153):Color.fromARGB(255,221, 221, 221),),
+                              SizedBox(),
+                              Icon((step>=2) ? Icons.circle:Icons.circle_outlined,color: (step>=2)?Color.fromARGB(255, 102, 0, 153):Color.fromARGB(255, 102, 102, 102),),
+                              SizedBox(),
+                              Icon(Icons.linear_scale_outlined,color: (step>=3)?Color.fromARGB(255, 102, 0, 153):Color.fromARGB(255, 221, 221, 221),),
+                              SizedBox(),
+                              Icon((step>=3) ? Icons.circle:Icons.circle_outlined,color: (step>=3)?Color.fromARGB(255, 102, 0, 153):Color.fromARGB(255, 102, 102, 102),),
+                              SizedBox(),
+                              Icon(Icons.linear_scale_outlined,color: (step>=4)?Color.fromARGB(255, 102, 0, 153):Color.fromARGB(255, 221, 221, 221),),
+                              SizedBox(),
+                              Icon((step>=4) ? Icons.circle:Icons.circle_outlined,color: (step>=4)?Color.fromARGB(255, 102, 0, 153):Color.fromARGB(255, 102, 102, 102),),
+                              SizedBox(),
+                              Icon(Icons.linear_scale_outlined,color: (step>=5)?Color.fromARGB(255, 102, 0, 153):Color.fromARGB(255, 221, 221, 221),),
+                              SizedBox(),
+                              Icon((step>=5) ? Icons.circle:Icons.circle_outlined,color: (step>=5)?Color.fromARGB(255, 102, 0, 153):Color.fromARGB(255, 102, 102, 102),),
+                              SizedBox(),
+                            ],
+                          ),
+                        );
+  }
+}

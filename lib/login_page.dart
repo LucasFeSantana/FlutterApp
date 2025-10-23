@@ -22,7 +22,7 @@ class _appStartPageState extends State<LoginPage> {
       Future<void> _sendData() async {
         final login = _loginController.text;
         final senha = _senhaController.text;
-        final url = Uri.http('192.168.1.6:5000','/responsavel',{
+        final url = Uri.http( '192.168.250.112:5000','/responsavel',{
           'login': login,
           'senha': senha
           });
@@ -70,13 +70,21 @@ class _appStartPageState extends State<LoginPage> {
                 //logo Vivo
                 SizedBox(
                   width:48, height: 48,
-                child: Image(image: AssetImage('assets/images/vivo_logo.png'))
+                child: GestureDetector
+                (onTap:(){
+                  AppController.instance.UserLogging(_loginController.text);
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AppStartPage()
+                    )
+                  );},child: Image(image: AssetImage('assets/images/vivo_logo.png'),))
                 ),
                     
                 SizedBox(height: 20,),
                     
                 SizedBox(
-                  width:250,height: 131,
+                  width:300,height: 131,
                 child:
                   Center(
                     child: Column(children:[
@@ -90,7 +98,7 @@ class _appStartPageState extends State<LoginPage> {
                 SizedBox(height: 30),
                     
                 SizedBox(
-                  width:305,height: 52,
+                  width:305,height: 56,
                 child:
                   Center(
                     child: Column(children:[
@@ -112,7 +120,7 @@ class _appStartPageState extends State<LoginPage> {
                 SizedBox(height: 8),
                     
                 SizedBox(
-                  width:305,height: 40,
+                  width:305,height: 44,
                 child:
                   Center(
                     child: Column(children:[

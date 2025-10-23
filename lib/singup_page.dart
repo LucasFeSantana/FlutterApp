@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_app/appStart_page.dart';
 import 'dart:convert';
+import 'package:flutter_app/app_controller.dart';
 
 class SingupPage extends StatefulWidget {
   const SingupPage({super.key});
@@ -31,7 +32,7 @@ Future<void> _sendData() async {
         final nascimento = _nascimentoController.text;
         final telefone = _telefoneController.text;
         final cpf = _cpfController.text;
-        final url = Uri.http('192.168.1.6:5000','/responsavel');
+        final url = Uri.http('${AppController.instance.ipServidor}:5000','/responsavel');
 
         try {
         final response = await http.post(
