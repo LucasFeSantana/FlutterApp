@@ -1,147 +1,82 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/components_widget.dart';
-import 'package:flutter_app/gpt_page.dart';
-import 'package:installed_apps/app_info.dart';
-import 'package:installed_apps/installed_apps.dart';
-import 'package:intl/intl.dart';
-import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
-
+import 'package:flutter_app/addingKid_page.dart';
+import 'package:flutter_app/appStart_page.dart';
+import 'package:flutter_app/app_controller.dart';
+import 'package:flutter_app/app_details_page.dart';
+import 'package:flutter_device_apps/flutter_device_apps.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
   @override
-  State<HomePage> createState() => _HomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-TextEditingController dateInputController = TextEditingController();
-DateTime? _selectedDate;
-
 class _HomePageState extends State<HomePage> {
-  
-int amountApps=0;  
+  //List<AppInfo> _apps = [];
 
-var dateFormatter = new MaskTextInputFormatter(
-mask: '##/##/####', 
-  filter: { "#": RegExp(r'[0-9]') },
-  type: MaskAutoCompletionType.lazy
-);
+  //@override
+  //void initState() {
+  //  super.initState();
+  //  _loadApps();
+  //}
 
-var cellfoneFormatter = new MaskTextInputFormatter(
-mask: '(##) #####-####', 
-  filter: { "#": RegExp(r'[0-9]') },
-  type: MaskAutoCompletionType.lazy
-);
-
-var cpfFormatter = new MaskTextInputFormatter(
-mask: '###.###.###-##', 
-  filter: { "#": RegExp(r'[0-9]') },
-  type: MaskAutoCompletionType.lazy
-);
-
-@override
-void initState() {
-    super.initState();
-    getAllInstalledApps();
-  }
-
-   getAllInstalledApps() async {
-    List<AppInfo> apps = await InstalledApps.getInstalledApps(excludeSystemApps: false,excludeNonLaunchableApps: true);
+  Future<void> _logout() async {
     setState(() {
-      int amountApps = apps.length;
+      AppController.instance.UserLogging('');
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => AppStartPage()),
+      );
     });
+    
   }
 
+  //Future<void> _loadApps() async {
+  //  List<AppInfo> apps = await FlutterDeviceApps.listApps(
+  //    includeSystem: true,
+  //    onlyLaunchable: true,
+  //    includeIcons: true,
+  //  );
+  //
+  //  setState(() {
+  //    _apps = apps;
+  //  });
+  //}
 
   @override
   Widget build(BuildContext context) {
-    return 
-      customAppBar('Home Page',
-      Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
+    return Scaffold(
+      //Corpo HomePage
+      body: Padding(
+        padding: EdgeInsetsGeometry.fromLTRB(16, 64, 16, 16),
+        child: SingleChildScrollView(
           child: Container(
-            child: Column(
-              children: [
-
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      label: Text('Nome Completo'),
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                          onPressed: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => MyWidget())
+                            );
+                          },
+                          child: Text('Cadastrar Filho')
+                        )
+                      ],
                     ),
                   ),
                 ),
+        ),
+    ),
 
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    inputFormatters: [cpfFormatter],
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      label: Text('CPF'),
-                    ),
-                  ),
+      //Navbar inferior
+      bottomNavigationBar: ElevatedButton(
+                  onPressed: () {
+                    _logout();
+                  },
+                  child: Text('Logout'),
                 ),
-
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    inputFormatters: [cellfoneFormatter],
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      label: Text('Telefone'),
-                    ),
-                  ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    controller: dateInputController,
-                    inputFormatters: [dateFormatter],
-                    decoration: InputDecoration(
-                      labelText: 'Data de Nascimento',
-                      suffixIcon: Icon(Icons.calendar_today),
-                      border: OutlineInputBorder(),
-                    ),
-                    onTap: () async {
-                      DateTime? pickedDate = await showDatePicker(
-                        context: context,
-                        initialDate: _selectedDate ?? DateTime.now(),
-                        firstDate: DateTime(1950), // Set your desired first selectable date
-                        lastDate: DateTime.now(),  // Set your desired last selectable date
-                      );
-
-                      if (pickedDate != null) {
-                        setState(() {
-                          _selectedDate = pickedDate;
-                          dateInputController.text = DateFormat('dd/MM/yyyy').format(pickedDate);
-                        });
-                      }
-                    },
-                          ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    inputFormatters: [cellfoneFormatter],
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      label: Text('Telefone'),
-                    ),
-                  ),
-                ),
-                
-                
-              ],
-            ),
-          ),
-        ) 
-      )
-      )
-      ;
+    );
   }
 }

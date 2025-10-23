@@ -9,6 +9,6 @@ class AppDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return customAppBar(SelectedApp.instance.appName,Container());
+    return Scaffold(appBar: AppBar(),);
   }
 }

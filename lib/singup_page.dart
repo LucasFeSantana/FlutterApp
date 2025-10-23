@@ -97,10 +97,10 @@ mask: '###.###.###-##',
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: AppBar(),
+      appBar: AppBar(elevation: 0,forceMaterialTransparency: true,),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(16,64,16,16),//Padding Global da tela
+          padding: const EdgeInsets.all(16),//Padding Global da tela
           child: Center(
             child: Column(
               children: [

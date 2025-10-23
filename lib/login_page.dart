@@ -57,12 +57,12 @@ class _appStartPageState extends State<LoginPage> {
       }
 
     return Scaffold(
-      appBar: AppBar(),
+      //appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
         
           //padding global da página
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.fromLTRB(16,64,16,16),
           child: Center(
             child: Column(
               children: [
@@ -186,7 +186,7 @@ class _appStartPageState extends State<LoginPage> {
                 child: Padding(padding: const EdgeInsets.fromLTRB(0,8,0,8),
                   child: GestureDetector(
                     onTap:() {
-                      Navigator.pushReplacement(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => SingupPage()),
                       );

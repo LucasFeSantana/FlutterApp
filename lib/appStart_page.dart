@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/gpt_page.dart';
 import 'package:flutter_app/home_page.dart';
 import 'package:flutter_app/login_page.dart';
 import 'app_controller.dart';
@@ -22,7 +21,7 @@ class _AppStartPageState extends State<AppStartPage> {
       if (AppController.instance.islogged) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => InstalledAppsGallery()),
+          MaterialPageRoute(builder: (context) => HomePage()),
         );
       } else {
         Navigator.pushReplacement(

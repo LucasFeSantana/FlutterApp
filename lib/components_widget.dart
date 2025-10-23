@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/app_controller.dart';
 
+  // TODO: Deletar widget personalizado
 class customAppBar extends StatelessWidget {
 
   //Propriedades do Scafold personalizado
